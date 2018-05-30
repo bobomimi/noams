@@ -88,4 +88,39 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  ActionMailer::Base.smtp_settings = {
+  :user_name => ENV['SENDGRID_USERNAME'],
+  :password => ENV['SENDGRID_PASSWORD'],
+  :domain => 'noams.herokuapp.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}
+
+  config.paperclip_defaults = {
+    storage: :s3,
+    s3_credentials: {
+      bucket: ENV['S3_BUCKET_NAME'],
+      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
+      s3_region: ENV['AWS_REGION']
+    }
+  }
+
+  config.action_controller.asset_host = 'd1z2ehzd1tpkuc.cloudfront.net'
+
+  config.action_controller.perform_caching = true
+  
+  config.cache_store = :memory_store, { size: 64.megabytes }
+
+  config.public_file_server.headers = {
+    "Cache-Control" => "public, s-maxage=31536000, maxage=15552000",
+    "Expires" => "#{1.year.from_now.to_formatted_s(:rfc822)}"
+ }
+
+
+ config.serve_static_assets = true
+
 end

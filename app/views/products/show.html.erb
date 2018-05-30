@@ -1,34 +1,43 @@
-<p id="notice"><%= notice %></p>
+<!-- Page Content -->
+    <div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
+      <div class="row">
 
-<p>
-  <strong>Main title:</strong>
-  <%= @product.main_title %>
-</p>
+        <div class="col-lg-3">
+          <h1 class="my-4">Shop Name</h1>
+          <div class="list-group">
+            <a href="#" class="list-group-item active">Category 1</a>
+            <a href="#" class="list-group-item">Category 2</a>
+            <a href="#" class="list-group-item">Category 3</a>
+          </div>
+        </div>
+        <!-- /.col-lg-3 -->
 
-<p>
-  <strong>Sub title:</strong>
-  <%= @product.sub_title %>
-</p>
+        <div class="col-lg-9">
 
-<p>
-  <strong>Image:</strong>
-  <%= @product.image %>
-</p>
+          <div class="card mt-4">
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+            <%= image_tag @product.image.url, class: "card-img-top img-fluid" %>
+            <div class="card-body">
+              <h3 class="card-title"><%= @product.title %></h3>
+              <h4>$<%= @product.price %></h4>
+              <p class="card-text"><%= @product.description %></p>
+  
+          </div>
+          
+        </div>
+        <!-- /.col-lg-9 -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+      </div>
+    </div>
+    </div>
+    <!-- /.container -->
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+    <!-- Footer -->
+     <!-- Footer -->
+  <footer class="py-5 bg-light">
+    <div class="container">
+      <p class="m-0 text-center text-black">Copyright &copy; Your Website 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>

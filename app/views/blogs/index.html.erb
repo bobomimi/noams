@@ -22,17 +22,17 @@
           <div class="row">
             <div class="col-lg-6">
               <% link_to blog do %>
-              <%= image_tag post.image, class: "card-img-top"%>
+              <%= image_tag blog.image, class: "card-img-top"%>
                <% end %>
             </div>
             <div class="col-lg-6">
               <h2 class="card-title"><%= blog.main_title %></h2>
               <p class="card-text"><%= blog.sub_title %></p>
-              <%= link_to 'Read More', post, class: 'btn btn-primary' %>
+              <%= link_to 'Read More', blog, class: 'btn btn-primary' %>
               <% if admin_signed_in? %>
                 <%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %>
-                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
-                <%= link_to 'New Post', new_blog_path, class: "btn btn-primary" %>
+                <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+                <%= link_to 'New blog', new_blog_path, class: "btn btn-primary" %>
               <% end %>
               </div>
           </div>

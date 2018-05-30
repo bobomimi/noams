@@ -1,29 +1,80 @@
-<p id="notice"><%= notice %></p>
+        <!-- Page Content -->
+    <div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+      <!-- Page Heading/Breadcrumbs -->
+      <h1><%= @blog.main_title %></h1>
+     
 
-<p>
-  <strong>Main title:</strong>
-  <%= @blog.main_title %>
-</p>
+      
 
-<p>
-  <strong>Sub title:</strong>
-  <%= @blog.sub_title %>
-</p>
+      <div class="row">
 
-<p>
-  <strong>Image:</strong>
-  <%= @blog.image %>
-</p>
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
 
-<p>
-  <strong>Description:</strong>
-  <%= @blog.description %>
-</p>
+          <!-- Preview Image 900x300-->
 
-<%= link_to 'Edit', edit_blog_path(@blog) %> |
-<%= link_to 'Back', blogs_path %>
+         <%= image_tag @blog.image.url, class: "img-fluid rounded" %>
+
+
+          <hr>
+
+          <!-- Date/Time -->
+          <h2><%= @blog.sub_title %></h2>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead"><%= raw @blog.description %></p>
+
+          
+         <p>Posted on <%= @blog.created_at.strftime("%B %d %Y, %l:%M%P") %></p>
+          
+        
+          <!--<center>
+          <a class="twitter-share-button" href="https://twitter.com/donpilates/">Tweet</a>
+          <a class="twitter-follow-button"
+          href="https://twitter.com/TwitterDev">
+          Follow @Donpilates</a>
+
+          <script src="https://apis.google.com/js/platform.js" async defer></script>
+          <g:plusone></g:plusone>
+          <script src="https://apis.google.com/js/platform.js" async defer></script>
+          <g:plus action="share"></g:plus>-->
+          
+          </center>
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+              agghg
+              <% if admin_signed_in? %>
+                  <%= link_to 'Edit', edit_blog_path %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    
+
+     
+
+
+      
+
+
+    <!-- Footer -->
+    <footer class="py-5 bg-light">
+      <div class="container">
+        <p class="m-0 text-center text-dark">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
