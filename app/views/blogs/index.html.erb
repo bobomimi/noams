@@ -1,0 +1,51 @@
+<br>
+<br>
+<!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">
+        <small></small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Blog Home 2</li>
+      </ol>
+       
+      <!-- Blog Post -->
+      <% @blogs.each do |blog| %>
+      <div class="card mb-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <% link_to blog do %>
+              <%= image_tag post.image, class: "card-img-top"%>
+               <% end %>
+            </div>
+            <div class="col-lg-6">
+              <h2 class="card-title"><%= blog.main_title %></h2>
+              <p class="card-text"><%= blog.sub_title %></p>
+              <%= link_to 'Read More', post, class: 'btn btn-primary' %>
+              <% if admin_signed_in? %>
+                <%= link_to 'Edit', edit_blog_path(blog), class: "btn btn-primary" %>
+                <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+                <%= link_to 'New Post', new_blog_path, class: "btn btn-primary" %>
+              <% end %>
+              </div>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          Posted on <%= blog.created_at.strftime("%B %d %Y, %l:%M%P") %>
+        </div>
+      </div>
+      <% end%></div>
+  <!-- Footer -->
+  <footer class="py-5 bg-light">
+    <div class="container">
+      <p class="m-0 text-center text-black">Copyright &copy; Your Website 2018</p>
+    </div>
+    <!-- /.container -->
+</footer>
